@@ -1,2 +1,2 @@
 # 11-16-PrositNeuJahr
-A Christmas tree is located in the middle and it has christmas balls on it. a robot comes and breaks the christmas balls. we zoom out and see the fireworks fly out from the tree
+A Christmas tree is located in the middle of a terrain with some christmas presents on the ground. If a snowman comes and touches the presents, the camera changes position and follows the fireworks.
