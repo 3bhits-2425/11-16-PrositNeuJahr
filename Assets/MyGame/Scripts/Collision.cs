@@ -1,52 +1,44 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class GiftCollision : MonoBehaviour
 {
-    public GameObject rocketPrefab; 
-    public string nextSceneName = "NewYear"; 
-    private int giftsCollected = 0; 
-    public int requiredGifts = 2; 
-
-    private void Start()
-    {
-        
-    }
+    public GameObject rocketPrefab;
+    public string nextSceneName = "NewYear";
+    private int giftsCollected = 0;
+    public int requiredGifts = 4; 
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if (collision.gameObject.CompareTag("Snowman"))
-        {
-            HandleSnowmanCollision();
-        }
+       
 
         
         if (collision.gameObject.CompareTag("Gift"))
         {
-            HandleGiftCollision();
+            HandleGiftCollision(collision.gameObject);
         }
-    }
 
-    private void HandleSnowmanCollision()
-    {
-        Destroy(gameObject); 
-        Debug.Log("Schneemann getroffen!");
-        if (rocketPrefab != null)
+        
+        if (collision.gameObject.CompareTag("Snowman"))
         {
-            Instantiate(rocketPrefab, transform.position, Quaternion.identity);
-            Debug.Log("Rakete erzeugt!");
+            Debug.Log("Schneemann getroffen!");
         }
     }
 
-    private void HandleGiftCollision()
+    private void HandleGiftCollision(GameObject gift)
     {
         Debug.Log("Geschenk getroffen!");
-        giftsCollected++; 
-        Debug.Log("Geschenke gesammelt: " + giftsCollected);
-        Destroy(gameObject); 
 
-       
+        
+        Destroy(gift);
+        Debug.Log("Geschenk wurde entfernt.");
+
+
+        
+        giftsCollected++;
+        Debug.Log("Geschenke gesammelt: " + giftsCollected + "/" + requiredGifts);
+
+
         if (giftsCollected >= requiredGifts)
         {
             LoadNextScene();
@@ -56,7 +48,6 @@ public class GiftCollision : MonoBehaviour
     private void LoadNextScene()
     {
         Debug.Log("Szenenwechsel wird ausgelöst.");
-        SceneManager.LoadScene(nextSceneName); 
+        SceneManager.LoadScene(nextSceneName);
     }
-
 }
