@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Present_Box_Color_21 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 179818, guid: 532e45e2b1451f54b83cdd129a719fac, type: 3}
+      propertyPath: m_TagString
+      value: Gift
+      objectReference: {fileID: 0}
     - target: {fileID: 463186, guid: 532e45e2b1451f54b83cdd129a719fac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.443
@@ -537,11 +541,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555a450a413ce924ea367d43a02f44b5, type: 3}
---- !u!1 &577758708 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1149625324042060, guid: 6c69b53bc916eb34f8fb8f05e6d777ca, type: 3}
-  m_PrefabInstance: {fileID: 645252776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604510693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 73dceb18f0e40934fbde841e3fe5620c, type: 3}
@@ -1235,13 +1234,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Present_Box_Color_15 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 112072, guid: 53981ad3738d4aa42aa6df455316ca68, type: 3}
+      propertyPath: m_TagString
+      value: Gift
+      objectReference: {fileID: 0}
     - target: {fileID: 446642, guid: 53981ad3738d4aa42aa6df455316ca68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.17
       objectReference: {fileID: 0}
     - target: {fileID: 446642, guid: 53981ad3738d4aa42aa6df455316ca68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 446642, guid: 53981ad3738d4aa42aa6df455316ca68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1300,11 +1303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2f5cde426f4724e83acaf1c724e5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 577758708}
+  rocketPrefab: {fileID: 1149625324042060, guid: 6c69b53bc916eb34f8fb8f05e6d777ca, type: 3}
   cameraTag: MainCamera
   transitionSpeed: 5
-  targetPosition: {x: 55, y: 70, z: -10}
   resetDelay: 4
+  requiredGifts: 2
+  nextSceneName: NewYear
 --- !u!1 &1695419047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3796148324925224083, guid: 73dceb18f0e40934fbde841e3fe5620c, type: 3}
@@ -1350,11 +1354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2f5cde426f4724e83acaf1c724e5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 577758708}
+  rocketPrefab: {fileID: 1149625324042060, guid: 6c69b53bc916eb34f8fb8f05e6d777ca, type: 3}
   cameraTag: MainCamera
   transitionSpeed: 5
-  targetPosition: {x: 0, y: 70, z: -10}
   resetDelay: 4
+  requiredGifts: 2
+  nextSceneName: NewYear
 --- !u!1001 &2070863041
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,50 +1,62 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class GiftCollision : MonoBehaviour
 {
-    public GameObject rocketPrefab;
-    public string cameraTag = "MainCamera"; 
-    public float transitionSpeed = 5f;
-    public Vector3 targetPosition = new Vector3(-40f, 10f, -10f);  // Provisorische Position
-    public float resetDelay = 4f;
-
-    private Camera mainCamera;
-    private Vector3 originalPosition;
-    
-    
+    public GameObject rocketPrefab; 
+    public string nextSceneName = "NewYear"; 
+    private int giftsCollected = 0; 
+    public int requiredGifts = 2; 
 
     private void Start()
     {
-        GameObject cameraObject = GameObject.FindWithTag(cameraTag);
-        if (cameraObject != null)
-        {
-            mainCamera = cameraObject.GetComponent<Camera>();
-            originalPosition = mainCamera.transform.position;
-        }
-        else
-        {
-            Debug.LogError("Keine Kamera mit dem angegebenen Tag gefunden: " + cameraTag);
-        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.CompareTag("Snowman"))
         {
-            Destroy(gameObject);
+            HandleSnowmanCollision();
+        }
 
-            if (rocketPrefab != null)
-            {
-                Instantiate(rocketPrefab, transform.position, Quaternion.identity);
-            }
-
-           
-       
+        
+        if (collision.gameObject.CompareTag("Gift"))
+        {
+            HandleGiftCollision();
         }
     }
 
-    private void Update()
+    private void HandleSnowmanCollision()
     {
-        
+        Destroy(gameObject); 
+        Debug.Log("Schneemann getroffen!");
+        if (rocketPrefab != null)
+        {
+            Instantiate(rocketPrefab, transform.position, Quaternion.identity);
+            Debug.Log("Rakete erzeugt!");
+        }
     }
+
+    private void HandleGiftCollision()
+    {
+        Debug.Log("Geschenk getroffen!");
+        giftsCollected++; 
+        Debug.Log("Geschenke gesammelt: " + giftsCollected);
+        Destroy(gameObject); 
+
+       
+        if (giftsCollected >= requiredGifts)
+        {
+            LoadNextScene();
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        Debug.Log("Szenenwechsel wird ausgelöst.");
+        SceneManager.LoadScene(nextSceneName); 
+    }
+
 }
