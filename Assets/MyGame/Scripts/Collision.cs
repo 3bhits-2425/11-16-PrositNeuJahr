@@ -19,10 +19,7 @@ public class GiftCollision : MonoBehaviour
         }
 
         
-        if (collision.gameObject.CompareTag("Snowman"))
-        {
-            Debug.Log("Schneemann getroffen!");
-        }
+        
     }
 
     private void HandleGiftCollision(GameObject gift)
